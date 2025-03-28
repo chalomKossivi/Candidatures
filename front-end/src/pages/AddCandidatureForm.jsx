@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-import { addCandidature } from "../services/candidatureService";
+import { useState } from "react";
+import axios from "axios";
 
-const AddCandidatureForm = ({ onAdd }) => {
+
+const AddCandidatureForm = () => {
   const [formData, setFormData] = useState({
     entreprise: "",
     poste: "",
-    lien_de_lOffre: "",
+    lienOffre: "",
     dateEnvoi: "",
-    statut: "En cours",
+    statut: "En attente",
   });
 
   const handleChange = (e) => {
@@ -16,19 +17,29 @@ const AddCandidatureForm = ({ onAdd }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await addCandidature(formData);
-    onAdd();
-    setFormData({ entreprise: "", poste: "", lien_de_lOffre: "", dateEnvoi: "", statut: "En cours" });
+    try {
+      await axios.post("http://localhost:5000/candidatures", formData);
+      alert("Candidature ajoutée avec succès !");
+      setFormData({
+        entreprise: "",
+        poste: "",
+        lienOffre: "",
+        dateEnvoi: "",
+        statut: "En attente",
+      });
+    } catch (error) {
+      console.error("Erreur lors de l'ajout :", error);
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <input type="text" name="entreprise" placeholder="Entreprise" value={formData.entreprise} onChange={handleChange} required />
       <input type="text" name="poste" placeholder="Poste" value={formData.poste} onChange={handleChange} required />
-      <input type="url" name="lien_de_lOffre" placeholder="Lien de l'offre" value={formData.lienOffre} onChange={handleChange} required />
+      <input type="url" name="lienOffre" placeholder="Lien de l’offre" value={formData.lienOffre} onChange={handleChange} required />
       <input type="date" name="dateEnvoi" value={formData.dateEnvoi} onChange={handleChange} required />
       <select name="statut" value={formData.statut} onChange={handleChange}>
-        <option value="En cours">En cours</option>
+        <option value="En attente">En attente</option>
         <option value="Acceptée">Acceptée</option>
         <option value="Refusée">Refusée</option>
       </select>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import AddCandidatureForm from "../components/AddCandidatureForm";
-import CandidatureList from "../components/CandidatureList";
+import AddCandidatureForm from "../src/components/AddCandidatureForm";
+import CandidatureList from "../src/components/CandidatureList";
 
 const CandidaturesPage = () => {
   const [refresh, setRefresh] = useState(false);
