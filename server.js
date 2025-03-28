@@ -30,5 +30,5 @@ app.use("/api", candidatureRoutes);
 
 // Démarrage du serveur
 app.listen(PORT, () => {
-  console.log(`🚀 Serveur démarré sur le port ${PORT}`); // Affiche un message de confirmation dans la console
+  console.log(`🚀 Serveur démarré sur http://localhost:${PORT}`); // Affiche un message de confirmation dans la console
 });
