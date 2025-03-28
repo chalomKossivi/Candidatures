@@ -10,7 +10,7 @@ const app = express()
 // CONNEXION MONGO
 connectMongoDB(ENV.URI_MONGO_LOCAL, ENV.DB_NAME);
 
-// MIDDLEWARE
+// MIDDLEWARE    
 app.use(express.json())
 
 // PRIFIX 
