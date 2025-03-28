@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
   res.send("Bienvenue sur l'API du Candidature Tracker"); // Répond avec un message simple
 });
 
-const candidatureRoutes = require("./routes/candidatureRoutes");
+const candidatureRoutes = require("./backend/routes/candidatureRoutes");
 app.use("/api", candidatureRoutes);
 
 // Démarrage du serveur
