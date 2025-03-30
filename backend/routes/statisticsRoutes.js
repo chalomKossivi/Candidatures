@@ -1,9 +1,9 @@
-const express = require('express');
-const router = express.Router();
-const Candidature = require('../models/Candidature');
+import express from 'express';
+const routerStats = express.Router();
+import Candidature from '../models/candidature.js';
 
 // Route pour récupérer les statistiques
-router.get('/stats', async (req, res) => {
+routerStats.get('/stats', async (req, res) => {
     try {
         const total = await Candidature.countDocuments();
         const stats = await Candidature.aggregate([
@@ -16,4 +16,4 @@ router.get('/stats', async (req, res) => {
     }
 });
 
-module.exports = router;
+export default routerStats;

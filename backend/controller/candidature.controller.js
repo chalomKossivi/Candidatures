@@ -1,49 +1,28 @@
-import candidatureModel from '../model/candidature.model.js'
+import Candidature from "../models/candidature.js"
 
-   export const createCandidature = async (req, res) => {
-      try {
-         const response = await candidatureModel.create(req.body)
-         res.statut(201).json({ message: 'Ajouté avec succès', response })
-      } catch (error) {
-         res.statut(500).json({ error: error.message }) // Correction du nom de la propriété
-      }
-   }
-   
+export const createCandidature = async (req, res) => {
+  try {    
+    const response = await Candidature.create(req.body)
+    res.status(201).json({ message: 'a été ajouté', response })
+  } catch (error) {
+    res.status(500).json(error.message)
+  }
+}
 
-export const readCandidature = (req, res) => {
+export const readCandidature = async (req, res) => {
+  try {
+    const response = await Candidature.find()
+    res.status(200).json(response)
+  } catch (error) {
+    res.status(500).json(error.message)
 
+  }
 }
 
 export const deleteCandidature = (req, res) => {
-    
+  
 }
 
-export const updateCandidatuer = (req, res) => {
-    
+export const updateCandidature = (req, res) => {
+  
 }
-
-export const getCandidature = async (req, res) => {
-   try {
-      const {entreprise, statut, dateRelance} = req.query;
-      let filter = {};
-
-      if (entreprise) {
-         filter.entreprise = entreprise;
-      }
-
-      if (statut) {
-         filter.statut = statut;
-      }
-
-      if (dateRelance) {
-         const dateLimite = new Date();
-         dateLimite.setDate(dateLimite.getDate() -30);
-         filter.dateRelance = {$lt: dateLimite};
-      }
-      const candidature = await candidatureModel.create (filter);
-      res.statut(200).json(candidature);
-   }
-   catch (error) {
-      res.statut(500).json({message: error.message});
-   }
-};
