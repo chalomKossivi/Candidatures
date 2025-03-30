@@ -7,7 +7,7 @@ const CandidatureList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/candidatures");
+        const response = await axios.get("http://localhost:8080/api/candidatures/get");
         setCandidatures(response.data);
       } catch (error) {
         console.error("Erreur lors de la récupération :", error);
@@ -18,7 +18,7 @@ const CandidatureList = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/candidatures/${id}`);
+      await axios.delete(`http://localhost:8080/api/candidatures/get/${id}`);
       setCandidatures(candidatures.filter((c) => c._id !== id));
     } catch (error) {
       console.error("Erreur lors de la suppression :", error);

@@ -13,6 +13,7 @@ const App = () => {
         <Route path="/" element={<CandidatureList />} />
         <Route path="/ajouter" element={<AddCandidatureForm />} />
       </Routes>
+      <AddCandidatureForm />
       <Footer />
     </Router>
   );

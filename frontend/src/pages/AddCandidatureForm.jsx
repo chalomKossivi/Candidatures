@@ -18,7 +18,7 @@ const AddCandidatureForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/candidatures", formData);
+      await axios.post("http://localhost:8080/api/candidatures/add", formData);
       alert("Candidature ajoutée avec succès !");
       setFormData({
         entreprise: "",

@@ -5,7 +5,7 @@ const Statistics = () => {
     const [stats, setStats] = useState({ total: 0, stats: [] });
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/statistics/stats')
+        axios.get('http://localhost:8080/api/candidatures/stats')
             .then(response => setStats(response.data))
             .catch(error => console.error("Erreur lors de la récupération des statistiques", error));
     }, []);

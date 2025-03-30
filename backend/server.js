@@ -1,7 +1,10 @@
-import app from 'app.js'
+import app from './app.js'
+import ENV from './config/env.js'
 
-const PORT =8080
+// PORT
+const PORT = ENV.PORT || 8080;
 
-app.listen(PORT,() =>{
-    Console.log(`listening at http://localhost:${PORT}`);
+// LISTEN
+app.listen(PORT, () => {
+  console.log(`Listening at http://localhost:${PORT}`);
 })
