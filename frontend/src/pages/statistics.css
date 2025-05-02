@@ -1,0 +1,42 @@
+/* Statistics.css */
+
+.statistics-container {
+    background-color: #ffffff;       /* fond blanc */
+    color: #1e1e1e;                  /* texte noir-gris */
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 30px auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+.statistics-container h2 {
+    color: #1e1e1e;
+    font-size: 24px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #27ae60; /* vert */
+    padding-bottom: 5px;
+}
+
+.statistics-container p {
+    font-size: 18px;
+    margin: 8px 0;
+}
+
+.statistics-container p:nth-child(2) {
+    color: #27ae60; /* vert : total */
+}
+
+.statistics-container p:nth-child(3) {
+    color: #f39c12; /* orange pour "en attente" */
+}
+
+.statistics-container p:nth-child(4) {
+    color: #2ecc71; /* vert vif pour acceptées */
+}
+
+.statistics-container p:nth-child(5) {
+    color: #e74c3c; /* rouge pour refusées */
+}
