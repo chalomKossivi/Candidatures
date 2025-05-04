@@ -13,7 +13,7 @@ connectMongoDB(ENV.URI_MONGO, ENV.DB_NAME);
 
 // MIDDLEWARE    
 app.use(express.json())
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({ origin: 'http://localhost:5174' }));
 
 // PRIFIX 
 app.use('/api/candidatures', candidatureRouter);
