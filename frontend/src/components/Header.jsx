@@ -1,39 +1,31 @@
-import React from 'react'
+// src/components/Header.js
+import React from 'react';
 import { useNavigate } from "react-router-dom";
-import '../styles/index.css'
+import '../styles/index.css';
 
-const Header = () => {
-
-  const navigate = useNavigate(); // Hook pour changer de page
+const Header = ({ searchTerm, onSearchChange }) => {
+  const navigate = useNavigate();
 
   return (
-
-    <div className = 'head'>
-
+    <div className='head'>
       <h1>JobTrack</h1>
 
-      <span className ='search' >
-        <input type="text" className = "search-input" placeholder="Rechercher..." />
-        {/* <button class="search-button">🔍</button> */}
+      <span className='search'>
+        <input
+          type="text"
+          placeholder="Rechercher par entreprise ou poste"
+          value={searchTerm}
+          onChange={(e) => onSearchChange(e.target.value)}
+        />
       </span>
 
-      {/* <span className = "menu">
-
-        <button className = "menu-button"> &#9776; </button>
-        <div className = "menu-content">
-            <a href="#">Option 1</a>
-            <a href="#">Option 2</a>
-            <a href="#">Option 3</a>
-        </div>
-        
-      </span> */}
-
-      <button className='NEW' onClick={() => navigate("/Ajouter")}>New</button>
-
+      <div className='navigate'>
+        <button className='NEW' onClick={() => navigate("/Ajouter")}>New</button>
+        <button onClick={() => navigate("/statistiques")}>Statistiques</button>
+        <button onClick={() => navigate("/")}>Candidatures</button>
+      </div>
     </div>
-    
-  )
-}
+  );
+};
 
-export default Header
-  
+export default Header;

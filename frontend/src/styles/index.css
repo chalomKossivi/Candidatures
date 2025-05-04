@@ -24,16 +24,19 @@ body::before {
 }
 
 /* HEADER */
-header {
+.head {
   text-align: center;
-  padding: 40px 20px;
+  padding: 4px 20px;
   background: linear-gradient(90deg, #ffa94d, #ff7f50);
   color: #fff;
-  font-size: 32px;
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: 1px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   animation: fadeInDown 1s ease-in-out;
+  display: flex;
+  justify-content: space-between;
+  
 }
 
 /* FORMULAIRE */
@@ -49,8 +52,7 @@ form {
 
 /* CHAMPS */
 input,
-select,
-button {
+select {
   width: 100%;
   padding: 16px;
   margin: 12px 0;
@@ -70,13 +72,15 @@ select:focus {
 
 /* BOUTON */
 button {
-  background: linear-gradient(90deg, #ffa94d, #ff7f50);
+  height: 40px;
+  background: linear-gradient(90deg, #81592e, #8c4c34);
   color: #fff;
   font-weight: bold;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 5px 15px rgba(255, 127, 80, 0.3);
+  border-radius: 10px;
 }
 
 button:hover {
@@ -140,4 +144,40 @@ footer {
   footer {
     font-size: 14px;
   }
+}
+
+table {
+  width: 100%; /* Le tableau prend toute la largeur de la page */
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+/* Centrer le texte horizontalement et verticalement */
+th, td {
+  padding: 15px; /* Augmente l'espacement pour un meilleur rendu */
+  text-align: center; /* Centre le texte horizontalement */
+  vertical-align: middle; /* Centre le texte verticalement */
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #ff7f50;
+  color: white;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+
+.navigate {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ff7f50;
+  border: none;
+  padding: 20px;
+  width: 300px;
 }
